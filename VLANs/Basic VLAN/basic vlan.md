@@ -22,6 +22,10 @@ This guide walks through configuring 3 VLANs (VLAN10: Sales, VLAN20: HR, VLAN30:
 ### **2.1 Stage 1: Design**
 
 <br>
+
+<img width="1021" height="765" alt="изображение" src="https://github.com/user-attachments/assets/259323ce-8239-4a9a-8e61-3faf442a8ca6" />
+
+
 <br>
 
 ### **2.2 Stage 2: Build**
@@ -72,3 +76,113 @@ Switch(config-vlan)#vlan 30
 
 Switch(config-vlan)#name IT
 ```
+
+<br>
+
+Following that, we can see that all VLANs created successfully using `show vlan brief`
+
+<br>
+
+<img width="850" height="348" alt="изображение" src="https://github.com/user-attachments/assets/976a177d-dce7-4cee-9339-adcd1290d682" />
+
+#### **3 Assign Physical Ports to VLANs**
+
+Now, we have to map VLANs to physical interfaces  on the switch
+
+**Assign Ports fa0/1-2** to **VLAN 10**
+
+<br>
+
+```text
+Switch(config)#interface range fastEthernet 0/1-2
+
+Switch(config-if-range)#switchport mode access
+
+Switch(config-if-range)#switchport access vlan 10
+
+
+Switch(config-if-range)#exit
+```
+
+<br>
+
+<img width="531" height="83" alt="изображение" src="https://github.com/user-attachments/assets/8b5b7776-879d-4be0-8cf7-a4734ac575f3" />
+
+<br>
+
+**Assign Ports fa0/3-4** to **VLAN 20**
+
+```text
+Switch(config)#interface range fastEthernet 0/3-4
+
+Switch(config-if-range)#switchport mode access
+
+Switch(config-if-range)#switchport access vlan 20
+
+Switch(config-if-range)#exit
+```
+
+
+<br>
+
+<img width="534" height="81" alt="изображение" src="https://github.com/user-attachments/assets/e4941342-7402-4d09-9f02-cf8793302705" />
+
+<br>
+
+
+
+**Assign Ports fa0/5-6** to **VLAN 30**
+
+```text
+Switch(config)#interface range fastEthernet 0/5-6
+
+Switch(config-if-range)#switchport mode access
+
+Switch(config-if-range)#switchport access vlan 30
+
+Switch(config-if-range)#exit
+```
+
+<img width="534" height="79" alt="изображение" src="https://github.com/user-attachments/assets/63bfd15d-4929-48c5-bbb0-723534001b68" />
+
+#### **4. Verify the Configuration:**
+
+Exit configuration mode and check the VLAN database to ensure your ports are assigned correctly with command `show vlan brief`
+
+<br>
+
+<img width="619" height="62" alt="изображение" src="https://github.com/user-attachments/assets/8285eec8-c278-4ca7-83cb-3aa7ec5db40a" />
+
+<br>
+
+#### **Testing with Ping**
+
+PC1 -> PC2 (Same VLAN 10) => ✅Successful
+
+<br>
+
+<img width="638" height="442" alt="изображение" src="https://github.com/user-attachments/assets/5bdbe072-51d6-42c8-86fb-76f93a41b830" />
+
+PC2 -> PC3 (Different: VLAN 10 and VLAN 20) => ❌Failed
+
+<br>
+
+<img width="674" height="425" alt="изображение" src="https://github.com/user-attachments/assets/80195860-dcc8-4bf8-97a9-a897a717969b" />
+
+<br>
+
+
+**Commands Used:**
+
+
+| **Command**                           | **Short Version** | **Executed in Mode**                    | **Purpose**                                                                                                    |
+| ------------------------------------- | ----------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `enable`                              | `en`              | User EXEC (`Switch>`)                   | Enters Privileged EXEC mode, allowing to view configurations and execute more advanced commands.               |
+| `configure terminal`                  | `conf t`          | Privileged EXEC (`Switch#`)             | Enters Global Configuration Mode, where changes affect the entier switch, rather that a specific port          |
+| `interface [type][port]`              | `int f0/1`        | Global Config (`Switch(config)#`)       | Enters interface configuration mode for a single specific port                                                 |
+| `interface range [type][port]-[port]` | `int f0/1-5`      | Global Config (`Switch(config)#`)       | Enters interface configuration mode for a group of ports<br>                                                   |
+| `vlan [id]`                           |                   | Global Config (`Switch(config)#`)       | Creates a new VLAN with the specified ID number and enters VLAN configuration mode                             |
+| `name [name]`                         |                   | VLAN Config (`Switch(config-vlan)#`)    | Assigns human-readable name for the VLAN ID                                                                    |
+| `switchport mode access`              | `sw mo ac`        | Interface Config (`Switch(config-if)#`) | Forces the port to operate as an access port (connecting to a single end device) and prevents it from trunking |
+| `switchport access vlan [id]`         | `sw ac vlan 10`   | Interface Config (`Switch(config-if)#`) | Assigns the access port to the specified VLAN                                                                  |
+| `show vlan brief`                     | `sh vlan br`      | Privileged EXEC (`Switch#`)             | Displays the table of all created VLANs, their names, status and which access ports are assigned to them       |
