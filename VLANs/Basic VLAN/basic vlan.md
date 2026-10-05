@@ -20,3 +20,55 @@ This guide walks through configuring 3 VLANs (VLAN10: Sales, VLAN20: HR, VLAN30:
 
 
 ### **2.1 Stage 1: Design**
+
+<br>
+<br>
+
+### **2.2 Stage 2: Build**
+
+#### **1. Build a topology in cisco packet tracer**
+
+- Configure IP adresses for each PC
+
+<br>
+
+<img width="1040" height="373" alt="изображение" src="https://github.com/user-attachments/assets/7c96d8b2-c335-4d76-b3ff-e43694c926ce" />
+
+<br>
+
+<img width="1621" height="1132" alt="изображение" src="https://github.com/user-attachments/assets/26d8112c-ab31-44a7-8eaa-e167e193d7af" />
+
+
+### **2. Create the VLAN on the Switch**
+
+Click the switch to go to CLI tab. Enter global configuration mode to create and name VLANs
+
+<br>
+
+<img width="629" height="216" alt="изображение" src="https://github.com/user-attachments/assets/3eed6335-8341-48bb-9320-2f1647260b2f" />
+
+<br>
+
+<br>
+
+<br>
+
+```Cisco
+Switch>enable
+
+Switch#conf t
+
+Enter configuration commands, one per line. End with CNTL/Z.
+
+Switch(config)#vlan 10
+
+Switch(config-vlan)#name HR
+
+Switch(config)#vlan 20
+
+Switch(config-vlan)#name SALES
+
+Switch(config-vlan)#vlan 30
+
+Switch(config-vlan)#name IT
+```
