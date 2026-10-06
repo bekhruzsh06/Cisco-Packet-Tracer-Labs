@@ -12,11 +12,8 @@ Links are pointing to directories with project, containing write-up, diagram and
 [Router-On-A-Stick](VLANs/ROAS/)<br>
 [VLAN Routing with L3 Switch](VLANs/L3%20Switch%20VLAN%20Routing/)<br>
 
-<br>
 
 ### Routing
-
-<br>
 
 [Static Routing](Routing/Static%20Routing/)<br>
 [Dynamic Routing](Routing/Dynamic%20Routing/OSPF)
