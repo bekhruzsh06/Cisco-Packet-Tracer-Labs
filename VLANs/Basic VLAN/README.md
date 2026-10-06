@@ -32,15 +32,22 @@ This guide walks through configuring 3 VLANs (VLAN10: Sales, VLAN20: HR, VLAN30:
 
 #### **1. Build a topology in cisco packet tracer**
 
-- Configure IP adresses for each PC
+<br>
 
+<img width="1621" height="1132" alt="изображение" src="https://github.com/user-attachments/assets/26d8112c-ab31-44a7-8eaa-e167e193d7af" />
+
+
+<br>
+<br>
+<br>
+Configure IP adresses for each PC
+
+<br>
 <br>
 
 <img width="1040" height="373" alt="изображение" src="https://github.com/user-attachments/assets/7c96d8b2-c335-4d76-b3ff-e43694c926ce" />
 
-<br>
 
-<img width="1621" height="1132" alt="изображение" src="https://github.com/user-attachments/assets/26d8112c-ab31-44a7-8eaa-e167e193d7af" />
 
 
 ### **2. Create the VLAN on the Switch**
