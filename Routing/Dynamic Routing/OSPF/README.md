@@ -33,13 +33,19 @@ For this OSPF configuration, we will scale up to a **3-Router Linear Topology** 
 
 First of all, we need to add serial and Gigabit modules to our routers (NIM-2T and NIM-ES2-4)
 
-![[Pasted image 20261005204836.png]]
+<br>
 
+<img width="1304" height="428" alt="изображение" src="https://github.com/user-attachments/assets/8b527522-ffe6-4293-8b38-3edb6ea68eae" />
+
+<br>
 
 Following that, our topology is as follows:
 
+<br>
 
-![[Pasted image 20261006160616.png]]
+<img width="1333" height="1140" alt="изображение" src="https://github.com/user-attachments/assets/8dbe2c06-5e74-4650-a585-4b3d306e01d4" />
+
+<br>
 
 #### 2.1  Understanding Wildcard Masks
 
@@ -52,7 +58,6 @@ When configuring OSPF, you must tell the router which interfaces to activate usi
 - Subnet Mask for a point-to-point `/30` WAN link: `255.255.255.252`
     
 - OSPF Wildcard Mask for `/30`: `0.0.0.3`
-
 
 
 
@@ -83,10 +88,14 @@ R1(config-router)# network 10.0.0.0 0.0.0.3 area 0
 
 R1(config-router)# exit
 ```
+<br>
 
-![[Pasted image 20261005214621.png]]
+<img width="666" height="95" alt="изображение" src="https://github.com/user-attachments/assets/5a881c8d-d664-4353-94f6-f752f4d5317d" />
+
+<br>
 
  So now we have networks 192.168.1.0/24 and 10.0.0.0/30 in the same room, so they can exchange their paths
+ <br>
 #### Configuring Router 2 (Site B - The Core)
 
 R2 sits in the middle and must advertise its own LAN plus _both_ of its WAN connections.
@@ -107,9 +116,11 @@ R2(config-router)# network 10.0.4.0 0.0.0.3 area 0
 
 R2(config-router)# exit
 ```
+<br>
+<img width="898" height="288" alt="изображение" src="https://github.com/user-attachments/assets/4f0a2daa-6975-45a5-9a2c-4f0d04c3f3df" />
+<br>
 
 
-![[Pasted image 20261005214709.png]]
 #### Configuring Router 3 (Site C)
 
 Tell R3 to advertise its LAN and its connection to the R2 WAN link.
@@ -129,8 +140,9 @@ R3(config-router)# network 10.0.4.0 0.0.0.3 area 0
 R3(config-router)# exit
 ```
 
-
-![[Pasted image 20261005214733.png]]
+<br>
+<img width="646" height="102" alt="изображение" src="https://github.com/user-attachments/assets/e7cff27d-748f-4e20-9522-338c6233c9af" />
+<br>
 
 ###  Verifying OSPF Operation
 
@@ -157,20 +169,25 @@ R1# show ip route
 
 **R1**
 
-![[Pasted image 20261005215846.png]]
+<br>
+<img width="721" height="255" alt="изображение" src="https://github.com/user-attachments/assets/3eeacdf3-b23c-446e-bff9-4dc59854eec3" />
 
+<br>
 
 
 **R2**
+<br>
+<img width="707" height="222" alt="изображение" src="https://github.com/user-attachments/assets/008aad86-e03b-4a7d-9a89-8ecbab9a5419" />
 
-![[Pasted image 20261005215917.png]]
-
+<br>
 
 
 **R3**
+<br>
+<img width="750" height="234" alt="изображение" src="https://github.com/user-attachments/assets/8141c65f-f310-4bf6-966d-7d1083d568b5" />
 
-![[Pasted image 20261005220022.png]]
 
+<br>
 
 Look for lines starting with an **`O`** (which stands for OSPF).
 
@@ -181,7 +198,11 @@ We will see that R1 automatically knows how to reach R3's network (`192.168.3.0`
 
 **PC1** (192.168.1.1) -> **PC3** (192.168.3.1) ✅
 
-![[OSPF-ezgif.com-video-to-gif-converter.gif]]
+<br>
+
+![Uploading изображение.png…]()
+
+<br>
 
 ## OSPF Commands Summary
 
