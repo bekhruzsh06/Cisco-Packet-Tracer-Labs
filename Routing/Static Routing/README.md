@@ -160,7 +160,7 @@ R2# show ip route
 - `192.168.1.0/24` - Destination network
 
 - `[1/0]` - values, representing Administrative Distance and Metric
-	-  **Administrative Distance (1):** truthworthiness of  a path (The less is value, the more authority it has) 
+	-  **Administrative Distance (1):** trustworthiness of the path (The less is value, the more authority it has) 
 	- **Metric (0):** Cost of specific path (hop count, bandwidth, delay)
 
 - `10.0.0.1` Next IP address (hop) to send packet to reach the intended network
