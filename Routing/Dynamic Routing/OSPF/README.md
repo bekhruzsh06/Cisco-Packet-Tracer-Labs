@@ -27,6 +27,9 @@ Unlike distance-vector protocols (like RIP) that simply ask neighboring routers 
 
 For this OSPF configuration, we will scale up to a **3-Router Linear Topology** to properly demonstrate dynamic discovery:
 
+<br>
+<img width="988" height="1229" alt="изображение" src="https://github.com/user-attachments/assets/adbcd7b4-0a06-4407-b8f5-4a7798b697a0" />
+<br>
 
 ### **CPT Build**
 
