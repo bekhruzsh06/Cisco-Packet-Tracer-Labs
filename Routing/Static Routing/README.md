@@ -28,8 +28,9 @@ For this configuration, we will use a classic 2-router topology connecting two d
     
 - **The WAN Link:** Connects R1 and R2 using the `10.0.0.0/30` subnet.
 
-
-![[Static Routing.drawio(1).svg]]
+<br>
+<img width="1481" height="896" alt="изображение" src="https://github.com/user-attachments/assets/f286922a-a079-4a37-b269-f0b0d5f47dbc" />
+<br>
 
 
 
@@ -37,7 +38,9 @@ For this configuration, we will use a classic 2-router topology connecting two d
 ### **1.1 Topology in Cisco Packet Tracer**
 
 
-![[Pasted image 20261005190314.png]]
+<br>
+<img width="1291" height="732" alt="изображение" src="https://github.com/user-attachments/assets/9aef7518-758d-485e-a446-1a05ae77fd72" />
+<br>
 
 
 
@@ -48,6 +51,7 @@ For this configuration, we will use a classic 2-router topology connecting two d
 
 Configure IP addresses on LAN and WAN interface on both routers
 
+<br>
 
 **R1:**
 
@@ -68,8 +72,10 @@ R1(config-if)#ip address 10.0.0.1 255.255.255.252
 
 R1(config-if)#exit
 ```
-
-![[Pasted image 20261005190856.png]]
+<br>
+<img width="894" height="636" alt="изображение" src="https://github.com/user-attachments/assets/e2e2921f-3891-491c-b189-5de156499516" />
+<br>
+<br>
 
 
 **R2:**
@@ -96,9 +102,10 @@ R2(config-if)#exit
 R2(config-if)#do show ip interfaces brief
 ```
 
-
-![[Pasted image 20261005191028.png]]
-
+<br>
+<img width="943" height="713" alt="изображение" src="https://github.com/user-attachments/assets/83779a7c-e7e6-443e-8f11-426005c748a8" />
+<br>
+<br>
 
 
 #### 2. Configure R1 (Routing to the Right)
@@ -129,15 +136,16 @@ To verify that the router accepted your configuration, check the routing table.
 ```Cisco
 R1# show ip route
 ```
-
-![[Pasted image 20261005192048.png]]
-
+<br>
+<img width="880" height="383" alt="изображение" src="https://github.com/user-attachments/assets/317b913a-551c-49e0-85a9-13c85f33cbf6" />
+<br>
 
 ```Cisco
 R2# show ip route
 ```
-
-![[Pasted image 20261005193318.png]]
+<br>
+<img width="834" height="536" alt="изображение" src="https://github.com/user-attachments/assets/dcdbb807-5a52-49f1-be81-9f14d964a595" />
+<br>
 
 - **S (Static):** Route, that was configured by us manually
 - **C (Connected):** Routes, to which router is connected physically
